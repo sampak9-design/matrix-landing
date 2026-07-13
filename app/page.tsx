@@ -64,7 +64,7 @@ export default function Home() {
           inset: 0,
           zIndex: 1,
           background:
-            "radial-gradient(ellipse 58% 50% at center, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.7) 42%, rgba(0,0,0,0.3) 100%)",
+            "radial-gradient(ellipse 72% 68% at center, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.93) 30%, rgba(0,0,0,0.72) 58%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.1) 100%)",
         }}
       />
       <div
@@ -72,7 +72,7 @@ export default function Home() {
           position: "fixed",
           inset: 0,
           zIndex: 1,
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.7), transparent 30%, transparent 70%, rgba(0,0,0,0.88))",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.35) 25%, rgba(0,0,0,0.35) 75%, rgba(0,0,0,0.9))",
         }}
       />
 
