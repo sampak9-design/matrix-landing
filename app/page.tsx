@@ -173,7 +173,7 @@ export default function Home() {
             marginBottom: 22,
           }}
         >
-          Inteligência Artificial
+          Inteligência Artificial · Mercado Financeiro
         </motion.p>
 
         {/* Pré-headline serif */}
