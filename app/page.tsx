@@ -282,25 +282,6 @@ export default function Home() {
             </span>
           </a>
 
-          {/* Secundário — link com seta */}
-          <a
-            href="#como-funciona"
-            className="btn-ghost"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              padding: "10px 18px",
-              borderRadius: 10,
-              color: "rgba(255,255,255,0.72)",
-              fontSize: "1rem",
-              fontWeight: 500,
-              transition: "color 0.2s, background 0.2s",
-            }}
-          >
-            Como funciona
-            <ArrowRight size={17} className="btn-ghost-arrow" />
-          </a>
         </motion.div>
       </section>
 
