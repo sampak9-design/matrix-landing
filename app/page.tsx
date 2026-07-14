@@ -254,17 +254,19 @@ export default function Home() {
             style={{
               display: "inline-flex",
               alignItems: "center",
+              justifyContent: "space-between",
               gap: 14,
-              padding: "8px 8px 8px 26px",
+              width: "min(420px, 90vw)",
+              padding: "10px 10px 10px 32px",
               borderRadius: 9999,
               background: "#ffffff",
               color: "#05130b",
-              fontSize: "1.05rem",
+              fontSize: "1.15rem",
               fontWeight: 600,
               transition: "transform 0.2s, box-shadow 0.2s",
             }}
           >
-            Entrar agora
+            Liberar meu acesso
             <span
               className="btn-primary-arrow"
               style={{
