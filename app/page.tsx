@@ -154,8 +154,8 @@ export default function Home() {
             alignItems: "center",
             justifyContent: "center",
             width: "100%",
-            maxWidth: 440,
-            padding: "26px 32px",
+            maxWidth: 460,
+            padding: "24px 18px",
             marginBottom: 20,
             border: "1px solid rgba(0,255,90,0.6)",
             background: "rgba(0,255,90,0.06)",
@@ -168,10 +168,11 @@ export default function Home() {
           <span style={corner({ bottom: -1, right: -1, borderBottom: `2px solid ${GREEN}`, borderRight: `2px solid ${GREEN}` })} />
           <span
             style={{
-              fontSize: "clamp(1.05rem, 4.5vw, 1.5rem)",
+              fontSize: "clamp(0.78rem, 3.6vw, 1.35rem)",
               fontWeight: 700,
               textTransform: "uppercase",
-              letterSpacing: "0.13em",
+              letterSpacing: "0.06em",
+              whiteSpace: "nowrap",
               color: "#5aff7f",
               textShadow: "0 0 14px rgba(0,255,90,0.75)",
             }}
