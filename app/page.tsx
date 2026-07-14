@@ -97,7 +97,9 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "56px 20px",
+          padding: "clamp(40px, 8vh, 64px) clamp(16px, 5vw, 24px)",
+          width: "100%",
+          maxWidth: "100%",
         }}
       >
         <p style={{ fontSize: 11, letterSpacing: "0.45em", textTransform: "uppercase", color: "rgba(0,230,118,0.8)", marginBottom: 40 }}>
@@ -203,8 +205,8 @@ export default function Home() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
-            gap: 28,
+            gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+            gap: "clamp(18px, 4vw, 28px)",
             width: "100%",
             maxWidth: 760,
             borderTop: "1px solid rgba(0,230,118,0.15)",

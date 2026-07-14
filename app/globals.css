@@ -10,6 +10,13 @@ body {
   color: #fff;
   font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img,
+svg {
+  max-width: 100%;
 }
 
 a {
