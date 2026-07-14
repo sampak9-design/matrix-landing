@@ -8,6 +8,8 @@
     "start": "next start -p ${PORT:-3000}"
   },
   "dependencies": {
+    "lucide-react": "^0.487.0",
+    "motion": "^12.42.2",
     "next": "15.5.9",
     "react": "19.0.0",
     "react-dom": "19.0.0"

@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "motion/react"
+import { ArrowRight, ChevronRight } from "lucide-react"
 import { MatrixRain } from "@/components/MatrixRain"
 
 // ====== TROQUE AQUI PELO SEU LINK DO TELEGRAM ======
@@ -6,226 +10,353 @@ const TELEGRAM_URL = "https://t.me/"
 
 const GREEN = "#00e676"
 
-function IconChip() {
+function Sunburst({ size = 24 }: { size?: number }) {
   return (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="6" y="6" width="12" height="12" rx="2" />
-      <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
-      <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.8" strokeLinecap="round">
+      <circle cx="12" cy="12" r="4" fill={GREEN} stroke="none" />
+      <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
     </svg>
   )
 }
-function IconLock({ size = 30 }: { size?: number }) {
+
+function Navbar() {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="4" y="11" width="16" height="10" rx="2" />
-      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-    </svg>
-  )
-}
-function IconClock() {
-  return (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3.5 2" />
-    </svg>
-  )
-}
-function IconTarget() {
-  return (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="9" />
-      <circle cx="12" cy="12" r="5" />
-      <circle cx="12" cy="12" r="1.4" fill={GREEN} />
-    </svg>
-  )
-}
-function IconTrend() {
-  return (
-    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 17l6-6 4 4 7-7" />
-      <path d="M17 5h4v4" />
-    </svg>
+    <nav
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "16px 24px",
+        background: "transparent",
+      }}
+    >
+      <a href={TELEGRAM_URL} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <Sunburst size={22} />
+        <span
+          style={{
+            fontWeight: 700,
+            fontSize: 18,
+            letterSpacing: "0.14em",
+            color: "#eafff2",
+            textShadow: "0 0 12px rgba(0,230,118,0.5)",
+          }}
+        >
+          MATRIX
+        </span>
+      </a>
+
+      <a
+        href={TELEGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 6,
+          padding: "8px 18px",
+          borderRadius: 9999,
+          border: "1px solid rgba(0,230,118,0.4)",
+          background: "rgba(0,230,118,0.08)",
+          color: "#eafff2",
+          fontSize: 14,
+          fontWeight: 600,
+        }}
+      >
+        Entrar <ChevronRight size={15} />
+      </a>
+    </nav>
   )
 }
 
 const features = [
-  { icon: <IconChip />, title: "Automático", desc: "A IA opera sozinha por você" },
-  { icon: <IconClock />, title: "24 Horas", desc: "Analisa o mercado sem parar" },
-  { icon: <IconTarget />, title: "Precisão", desc: "Decisões baseadas em dados" },
-  { icon: <IconTrend />, title: "Controle", desc: "Acompanhe tudo em tempo real" },
+  { title: "Automático", desc: "A IA opera sozinha por você" },
+  { title: "24 Horas", desc: "Analisa o mercado sem parar" },
+  { title: "Precisão", desc: "Decisões baseadas em dados" },
+  { title: "Controle", desc: "Acompanhe tudo em tempo real" },
 ]
-
-const corner = (pos: React.CSSProperties): React.CSSProperties => ({
-  position: "absolute",
-  width: 20,
-  height: 20,
-  ...pos,
-})
 
 export default function Home() {
   return (
     <main style={{ position: "relative", minHeight: "100vh", overflow: "hidden", background: "#000" }}>
-      {/* Fundo Matrix + centro escuro */}
+      {/* Fundo: chuva de código Matrix */}
       <MatrixRain />
+
+      {/* Overlay escuro + leve blur */}
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 1,
+          background: "rgba(0,0,0,0.6)",
+          backdropFilter: "blur(2px)",
+          WebkitBackdropFilter: "blur(2px)",
+        }}
+      />
+
+      {/* Vignette radial para legibilidade */}
       <div
         style={{
           position: "fixed",
           inset: 0,
           zIndex: 1,
           background:
-            "radial-gradient(ellipse 72% 68% at center, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.93) 30%, rgba(0,0,0,0.72) 58%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.1) 100%)",
+            "radial-gradient(ellipse 70% 65% at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.2) 100%)",
+        }}
+      />
+
+      {/* Brilhos decorativos verdes */}
+      <div
+        style={{
+          position: "fixed",
+          top: "-20%",
+          left: "18%",
+          width: 600,
+          height: 600,
+          borderRadius: "50%",
+          background: "rgba(0,230,118,0.18)",
+          filter: "blur(120px)",
+          mixBlendMode: "screen",
+          zIndex: 1,
+          pointerEvents: "none",
         }}
       />
       <div
         style={{
           position: "fixed",
-          inset: 0,
+          bottom: "-12%",
+          right: "16%",
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          background: "rgba(16,185,129,0.16)",
+          filter: "blur(120px)",
+          mixBlendMode: "screen",
           zIndex: 1,
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.35) 25%, rgba(0,0,0,0.35) 75%, rgba(0,0,0,0.9))",
+          pointerEvents: "none",
         }}
       />
 
-      {/* Conteúdo */}
-      <div
+      <Navbar />
+
+      {/* Conteúdo da hero */}
+      <section
         style={{
           position: "relative",
-          zIndex: 2,
+          zIndex: 10,
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "clamp(40px, 8vh, 64px) clamp(16px, 5vw, 24px)",
-          width: "100%",
-          maxWidth: "100%",
+          padding: "clamp(96px, 14vh, 140px) clamp(16px, 5vw, 24px) clamp(56px, 8vh, 80px)",
+          maxWidth: 960,
+          margin: "0 auto",
         }}
       >
-        <p style={{ fontSize: 11, letterSpacing: "0.45em", textTransform: "uppercase", color: "rgba(0,230,118,0.8)", marginBottom: 40 }}>
-          Inteligência Artificial · Mercado Financeiro
-        </p>
-
-        <p style={{ fontSize: 15, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(167,255,207,0.85)", marginBottom: 12 }}>
-          A máquina vê o que você não vê
-        </p>
-
-        <h1
+        {/* Eyebrow mono */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="font-mono-m"
           style={{
-            fontSize: "clamp(2.6rem, 9vw, 4.6rem)",
-            fontWeight: 700,
+            fontSize: 11,
+            letterSpacing: "0.4em",
             textTransform: "uppercase",
-            letterSpacing: "0.05em",
-            color: "#3dff6a",
-            textShadow: "0 0 12px rgba(0,255,90,0.85), 0 0 42px rgba(0,255,90,0.5)",
-            marginBottom: 24,
-            lineHeight: 1.05,
+            color: "rgba(0,230,118,0.85)",
+            marginBottom: 22,
+          }}
+        >
+          Inteligência Artificial · Mercado Financeiro
+        </motion.p>
+
+        {/* Pré-headline serif */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="font-serif-i"
+          style={{
+            fontSize: "clamp(1.6rem, 5.2vw, 3rem)",
+            lineHeight: 1.1,
+            color: "#eafff2",
+            marginBottom: 14,
+          }}
+        >
+          A máquina vê o que você não vê
+        </motion.p>
+
+        {/* Headline com gradiente */}
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          style={{
+            fontSize: "clamp(3.2rem, 13vw, 8.5rem)",
+            fontWeight: 600,
+            lineHeight: 0.9,
+            letterSpacing: "-0.04em",
+            textTransform: "uppercase",
+            background: "linear-gradient(to bottom, #ffffff 0%, #ffffff 42%, #6dffab 100%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+            WebkitTextFillColor: "transparent",
+            marginBottom: 28,
+            filter: "drop-shadow(0 0 32px rgba(0,230,118,0.35))",
           }}
         >
           Entre na Matrix
-        </h1>
+        </motion.h1>
 
-        <p
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.72 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
           style={{
-            fontSize: "clamp(0.95rem, 3.4vw, 1.2rem)",
-            letterSpacing: "0.13em",
-            textTransform: "uppercase",
-            color: "rgba(210,255,225,0.92)",
-            maxWidth: 560,
-            lineHeight: 1.6,
-            marginBottom: 24,
+            fontSize: "clamp(1rem, 2.6vw, 1.25rem)",
+            lineHeight: 1.65,
+            color: "#ffffff",
+            maxWidth: 620,
+            marginBottom: 40,
           }}
         >
-          A inteligência artificial que opera no mercado por você.
-        </p>
+          A inteligência artificial que opera no mercado por você — 24 horas por dia, analisando milhares de dados e
+          executando operações automáticas com precisão. Sem medo, sem ganância, sem erro humano.
+        </motion.p>
 
-        <p style={{ fontSize: 14, color: "rgba(167,255,207,0.6)", maxWidth: 480, lineHeight: 1.7, marginBottom: 40 }}>
-          24 horas por dia, a MATRIX analisa milhares de dados e executa operações automáticas com precisão — sem medo,
-          sem ganância, sem erro humano.
-        </p>
-
-        {/* Botão */}
-        <a
-          href={TELEGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Botões */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
           style={{
-            position: "relative",
             display: "flex",
-            flexDirection: "column",
+            flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "center",
-            width: "100%",
-            maxWidth: 460,
-            padding: "24px 18px",
-            marginBottom: 20,
-            border: "1px solid rgba(0,255,90,0.6)",
-            background: "rgba(0,255,90,0.06)",
-            boxShadow: "0 0 26px rgba(0,255,90,0.28), inset 0 0 26px rgba(0,255,90,0.08)",
+            gap: 20,
           }}
         >
-          <span style={corner({ top: -1, left: -1, borderTop: `2px solid ${GREEN}`, borderLeft: `2px solid ${GREEN}` })} />
-          <span style={corner({ top: -1, right: -1, borderTop: `2px solid ${GREEN}`, borderRight: `2px solid ${GREEN}` })} />
-          <span style={corner({ bottom: -1, left: -1, borderBottom: `2px solid ${GREEN}`, borderLeft: `2px solid ${GREEN}` })} />
-          <span style={corner({ bottom: -1, right: -1, borderBottom: `2px solid ${GREEN}`, borderRight: `2px solid ${GREEN}` })} />
-          <span
+          {/* Primário — pill branco com seta verde */}
+          <a
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
             style={{
-              fontSize: "clamp(0.78rem, 3.6vw, 1.35rem)",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "0.06em",
-              whiteSpace: "nowrap",
-              color: "#5aff7f",
-              textShadow: "0 0 14px rgba(0,255,90,0.75)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 14,
+              padding: "8px 8px 8px 26px",
+              borderRadius: 9999,
+              background: "#ffffff",
+              color: "#05130b",
+              fontSize: "1.05rem",
+              fontWeight: 600,
+              transition: "transform 0.2s, box-shadow 0.2s",
             }}
           >
-            Clique aqui para entrar
-          </span>
-          <span style={{ marginTop: 6, fontSize: 15, letterSpacing: "0.5em", textTransform: "uppercase", color: "rgba(167,255,207,0.85)" }}>
-            Grátis
-          </span>
-        </a>
+            Entrar agora
+            <span
+              className="btn-primary-arrow"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 40,
+                height: 40,
+                borderRadius: "50%",
+                background: GREEN,
+                transition: "background 0.2s",
+              }}
+            >
+              <ArrowRight size={20} color="#05130b" />
+            </span>
+          </a>
 
-        <p
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            fontSize: 11,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            color: "rgba(0,230,118,0.6)",
-            marginBottom: 64,
-          }}
-        >
-          <IconLock size={14} /> Acesso 100% gratuito e seguro
-        </p>
+          {/* Secundário — link com seta */}
+          <a
+            href="#como-funciona"
+            className="btn-ghost"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              padding: "10px 18px",
+              borderRadius: 10,
+              color: "rgba(255,255,255,0.72)",
+              fontSize: "1rem",
+              fontWeight: 500,
+              transition: "color 0.2s, background 0.2s",
+            }}
+          >
+            Como funciona
+            <ArrowRight size={17} className="btn-ghost-arrow" />
+          </a>
+        </motion.div>
+      </section>
 
-        {/* Features */}
+      {/* Como funciona / features */}
+      <section
+        id="como-funciona"
+        style={{
+          position: "relative",
+          zIndex: 10,
+          padding: "clamp(40px, 8vh, 72px) clamp(16px, 5vw, 24px) clamp(64px, 10vh, 96px)",
+          maxWidth: 900,
+          margin: "0 auto",
+        }}
+      >
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
-            gap: "clamp(18px, 4vw, 28px)",
-            width: "100%",
-            maxWidth: 760,
+            gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+            gap: "clamp(18px, 3vw, 28px)",
             borderTop: "1px solid rgba(0,230,118,0.15)",
-            paddingTop: 32,
+            paddingTop: "clamp(28px, 5vh, 44px)",
           }}
         >
           {features.map((f) => (
-            <div key={f.title} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-              <div style={{ marginBottom: 12, filter: "drop-shadow(0 0 6px rgba(0,255,90,0.65))" }}>{f.icon}</div>
-              <p style={{ fontSize: 12, letterSpacing: "0.2em", textTransform: "uppercase", color: "#3dff6a", marginBottom: 4 }}>{f.title}</p>
-              <p style={{ fontSize: 11, lineHeight: 1.4, color: "rgba(167,255,207,0.5)" }}>{f.desc}</p>
+            <div key={f.title} style={{ textAlign: "center" }}>
+              <p
+                style={{
+                  fontSize: 13,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#6dffab",
+                  marginBottom: 8,
+                  textShadow: "0 0 14px rgba(0,230,118,0.4)",
+                }}
+              >
+                {f.title}
+              </p>
+              <p style={{ fontSize: 14, lineHeight: 1.5, color: "rgba(255,255,255,0.55)" }}>{f.desc}</p>
             </div>
           ))}
         </div>
 
-        <p style={{ marginTop: 56, fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(0,230,118,0.7)" }}>
+        <p
+          className="font-mono-m"
+          style={{
+            textAlign: "center",
+            marginTop: "clamp(40px, 7vh, 64px)",
+            fontSize: 11,
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "rgba(0,230,118,0.7)",
+          }}
+        >
           A escolha é sua: azul ou vermelho?
         </p>
-      </div>
+      </section>
     </main>
   )
 }
