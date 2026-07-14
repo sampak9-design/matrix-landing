@@ -6,11 +6,12 @@ const TELEGRAM_URL = "https://t.me/"
 
 const GREEN = "#00e676"
 
-function IconEye() {
+function IconChip() {
   return (
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-      <circle cx="12" cy="12" r="3" />
+      <rect x="6" y="6" width="12" height="12" rx="2" />
+      <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+      <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
     </svg>
   )
 }
@@ -22,28 +23,37 @@ function IconLock({ size = 30 }: { size?: number }) {
     </svg>
   )
 }
-function IconBrain() {
+function IconClock() {
   return (
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9.5 2a2.5 2.5 0 0 0-2.5 2.5v.5A2.5 2.5 0 0 0 5 7.5 2.5 2.5 0 0 0 4 12a2.5 2.5 0 0 0 1 4.5 2.5 2.5 0 0 0 2.5 3.5A2.5 2.5 0 0 0 12 20V4.5A2.5 2.5 0 0 0 9.5 2Z" />
-      <path d="M14.5 2A2.5 2.5 0 0 1 17 4.5v.5a2.5 2.5 0 0 1 2 2.5 2.5 2.5 0 0 1 1 4.5 2.5 2.5 0 0 1-1 4.5 2.5 2.5 0 0 1-2.5 3.5A2.5 2.5 0 0 1 12 20" />
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3.5 2" />
     </svg>
   )
 }
-function IconPower() {
+function IconTarget() {
   return (
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2v10" />
-      <path d="M18.4 6.6a9 9 0 1 1-12.8 0" />
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1.4" fill={GREEN} />
+    </svg>
+  )
+}
+function IconTrend() {
+  return (
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 17l6-6 4 4 7-7" />
+      <path d="M17 5h4v4" />
     </svg>
   )
 }
 
 const features = [
-  { icon: <IconEye />, title: "Despertar", desc: "Veja além do que te mostraram" },
-  { icon: <IconLock />, title: "Conhecimento", desc: "Acesse o que está oculto" },
-  { icon: <IconBrain />, title: "Liberdade", desc: "Quebre as correntes da ilusão" },
-  { icon: <IconPower />, title: "Controle", desc: "Assuma o controle da sua realidade" },
+  { icon: <IconChip />, title: "Automático", desc: "A IA opera sozinha por você" },
+  { icon: <IconClock />, title: "24 Horas", desc: "Analisa o mercado sem parar" },
+  { icon: <IconTarget />, title: "Precisão", desc: "Decisões baseadas em dados" },
+  { icon: <IconTrend />, title: "Controle", desc: "Acompanhe tudo em tempo real" },
 ]
 
 const corner = (pos: React.CSSProperties): React.CSSProperties => ({
@@ -91,11 +101,11 @@ export default function Home() {
         }}
       >
         <p style={{ fontSize: 11, letterSpacing: "0.45em", textTransform: "uppercase", color: "rgba(0,230,118,0.8)", marginBottom: 40 }}>
-          O sistema é uma ilusão
+          Inteligência Artificial · Mercado Financeiro
         </p>
 
         <p style={{ fontSize: 15, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(167,255,207,0.85)", marginBottom: 12 }}>
-          Descubra a verdade
+          A máquina vê o que você não vê
         </p>
 
         <h1
@@ -124,12 +134,12 @@ export default function Home() {
             marginBottom: 24,
           }}
         >
-          O conhecimento que eles não querem que você tenha.
+          A inteligência artificial que opera no mercado por você.
         </p>
 
         <p style={{ fontSize: 14, color: "rgba(167,255,207,0.6)", maxWidth: 480, lineHeight: 1.7, marginBottom: 40 }}>
-          Aqui você terá acesso a conteúdos secretos, estratégias ocultas e ferramentas para despertar e tomar o
-          controle da sua realidade.
+          24 horas por dia, a MATRIX analisa milhares de dados e executa operações automáticas com precisão — sem medo,
+          sem ganância, sem erro humano.
         </p>
 
         {/* Botão */}
