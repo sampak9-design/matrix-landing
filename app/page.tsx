@@ -5,7 +5,7 @@ import { ArrowRight, ChevronRight } from "lucide-react"
 import { MatrixRain } from "@/components/MatrixRain"
 
 // ====== TROQUE AQUI PELO SEU LINK DO TELEGRAM ======
-const TELEGRAM_URL = "https://t.me/"
+const TELEGRAM_URL = "https://t.me/+jjC11RSfym5hODAx"
 // ===================================================
 
 const GREEN = "#00e676"
