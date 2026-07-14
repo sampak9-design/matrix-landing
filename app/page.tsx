@@ -105,7 +105,7 @@ export default function Home() {
           inset: 0,
           zIndex: 1,
           background:
-            "radial-gradient(ellipse 72% 68% at center, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.25) 100%)",
+            "radial-gradient(ellipse 70% 65% at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.2) 100%)",
         }}
       />
 
@@ -169,7 +169,7 @@ export default function Home() {
             fontSize: 11,
             letterSpacing: "0.4em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.8)",
+            color: "rgba(0,230,118,0.85)",
             marginBottom: 22,
           }}
         >
@@ -218,7 +218,7 @@ export default function Home() {
         {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.92 }}
+          animate={{ opacity: 0.72 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           style={{
             fontSize: "clamp(1rem, 2.6vw, 1.25rem)",
@@ -226,7 +226,6 @@ export default function Home() {
             color: "#ffffff",
             maxWidth: 620,
             marginBottom: 40,
-            textShadow: "0 2px 12px rgba(0,0,0,0.8)",
           }}
         >
           A inteligência artificial que opera no mercado por você — 24 horas por dia, analisando milhares de dados e
@@ -315,14 +314,14 @@ export default function Home() {
                   fontSize: 13,
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  color: "#ffffff",
+                  color: "#6dffab",
                   marginBottom: 8,
-                  textShadow: "0 0 14px rgba(0,230,118,0.35)",
+                  textShadow: "0 0 14px rgba(0,230,118,0.4)",
                 }}
               >
                 {f.title}
               </p>
-              <p style={{ fontSize: 14, lineHeight: 1.5, color: "rgba(255,255,255,0.75)" }}>{f.desc}</p>
+              <p style={{ fontSize: 14, lineHeight: 1.5, color: "rgba(255,255,255,0.55)" }}>{f.desc}</p>
             </div>
           ))}
         </div>
@@ -335,7 +334,7 @@ export default function Home() {
             fontSize: 11,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.65)",
+            color: "rgba(0,230,118,0.7)",
           }}
         >
           A escolha é sua: azul ou vermelho?
