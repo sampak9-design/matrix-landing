@@ -35,7 +35,7 @@ function Navbar() {
         background: "transparent",
       }}
     >
-      <a href={TELEGRAM_URL} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <Sunburst size={22} />
         <span
           style={{
