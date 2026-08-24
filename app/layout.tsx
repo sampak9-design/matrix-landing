@@ -44,6 +44,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1550777703294189');
 fbq('init', '1688707462391125');
+fbq('init', '2294521467980153');
 fbq('track', 'PageView');
           `}
         </Script>
@@ -65,6 +66,15 @@ fbq('track', 'PageView');
             width="1"
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=1688707462391125&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=2294521467980153&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>
