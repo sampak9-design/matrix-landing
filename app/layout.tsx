@@ -25,8 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <head>
         <Script
-          src="https://track-production-cd03.up.railway.app/static/tracker.js"
-          data-channel-id="8"
+          src="https://track.vssuite.com/static/tracker.js"
+          data-channel-id="9"
           data-channel-username=""
           data-projeto="4e025ca1-7818-4557-b618-6c1ede751758"
           strategy="beforeInteractive"
